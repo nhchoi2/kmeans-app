@@ -102,9 +102,9 @@ def main():
 
         fig, ax = plt.subplots(figsize=(6, 4))
         ax.plot(range(1, max_k + 1), wcss, marker='o', linestyle='--', color='b')
-        ax.set_xlabel("Number of Clusters (K)")
+        ax.set_xlabel("엘보우 메소드드")
         ax.set_ylabel("WCSS 값")
-        ax.set_title("WCSS vs. Number of Clusters")
+        ax.set_title("클러스터 갯수")
 
         st.pyplot(fig)
 
