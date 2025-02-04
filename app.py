@@ -12,6 +12,19 @@ if platform.system() == 'Windows':
     plt.rcParams['font.family'] = 'Malgun Gothic'
     plt.rcParams['axes.unicode_minus'] = False
 
+# 글꼴 썰치
+import os
+import matplotlib.font_manager as fm
+
+@st.cache_data
+def fontRegistered():
+    font_dirs = [os.getcwd() + '/custom_fonts']
+    font_files = fm.findSystemFonts(fontpaths=font_dirs)
+    for font_file in font_files:
+        fm.fontManager.addfont(font_file)
+    fm._load_fontmanager(try_read_cache=False)
+
+
 # Streamlit 스타일 적용
 st.set_page_config(page_title="K-Means Clustering App", layout="wide")
 
@@ -20,6 +33,9 @@ st.sidebar.image("image.webp", use_container_width=True)  # 📌 사이드바 �
 
 # 메인 앱
 def main():
+    fontRegistered()
+    plt.rc('font', family='NanumBarunGothic')
+
     st.title("🔍 K-Means Clustering App")
     st.markdown("##### 머신러닝 기반 K-Means 클러스터링을 간편하게 수행하세요.")
 
