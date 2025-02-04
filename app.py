@@ -5,9 +5,18 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import platform
+
+if platform.system() == 'Windows':
+    plt.rcParams['font.family'] = 'Malgun Gothic'
+    plt.rcParams['axes.unicode_minus'] = False
 
 # Streamlit 스타일 적용
 st.set_page_config(page_title="K-Means Clustering App", layout="wide")
+
+# 사이드바에 이미지 추가
+st.sidebar.image("image.webp", use_container_width=True)  # 📌 사이드바 이미지 추가
 
 # 메인 앱
 def main():
@@ -78,7 +87,7 @@ def main():
         fig, ax = plt.subplots(figsize=(6, 4))
         ax.plot(range(1, max_k + 1), wcss, marker='o', linestyle='--', color='b')
         ax.set_xlabel("Number of Clusters (K)")
-        ax.set_ylabel("WCSS")
+        ax.set_ylabel("WCSS 값")
         ax.set_title("WCSS vs. Number of Clusters")
 
         st.pyplot(fig)
