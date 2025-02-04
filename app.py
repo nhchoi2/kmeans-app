@@ -103,9 +103,9 @@ def main():
 
         fig, ax = plt.subplots(figsize=(6, 4))
         ax.plot(range(1, max_k + 1), wcss, marker='o', linestyle='--', color='b')
-        ax.set_xlabel("클러스터 갯수수")
+        ax.set_xlabel("클러스터 갯수")
         ax.set_ylabel("WCSS 값")
-        ax.set_title("엘보우 메드")
+        ax.set_title("엘보우 메소드")
 
         st.pyplot(fig)
 
